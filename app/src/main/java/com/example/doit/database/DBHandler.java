@@ -11,19 +11,31 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DB_NAME = "doIt";
     private static final int DB_VERSION = 1;
     private static final String TABLE_NAME = "reminders";
-    private static final String ID_COL = "id";
-    private static final String Category = "category";
+    private static final String id = "id";
+    private static final String category = "category";
     private static final String message = "message";
     private static final String date = "date";
     private static final String time = "time";
 
-    String val = "CREATE TABLE "+TABLE_NAME+"(\n" +
-            "   "+ID_COL+" INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-            "   "+Category+"           TEXT      NOT NULL,\n" +
-            "   "+message+"            TEXT       NOT NULL,\n" +
-            "   "+date+"        TEXT,\n" +
-            "   "+time+"         TEXT\n" +
-            ");";
+//    String val = "CREATE TABLE "+TABLE_NAME+"(\n" +
+//            "   "+ID_COL+" INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+//            "   "+Category+"           TEXT      NOT NULL,\n" +
+//            "   "+message+"            TEXT       NOT NULL,\n" +
+//            "   "+date+"        TEXT,\n" +
+//            "   "+time+"         TEXT\n" +
+//            ");";
+
+//    String val = "CREATE TABLE reminder (\n" +
+//            "                id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+//            "                category TEXT NOT NULL,\n" +
+//            "                message TEXT NOT NULL,\n" +
+//            "                date TEXT NOT NULL UNIQUE,\n" +
+//            "                time TEXT NOT NULL UNIQUE\n" +
+//            "                );";
+
+//    String val = "CREATE TABLE REMINDERS (ID INTEGER PRIMARY KEY AUTOINCREMENT, CATEGORY TEXT, MESSAGE TEXT,DATE TEXT,TIME TEXT);";
+
+    String val = "CREATE TABLE "+TABLE_NAME+" ("+id+" INTEGER PRIMARY KEY AUTOINCREMENT, "+category+" TEXT, "+message+" TEXT,"+date+" TEXT,"+time+" TEXT);";
 
     public DBHandler (Context context) {
         super(context,DB_NAME,null,DB_VERSION);
@@ -35,12 +47,21 @@ public class DBHandler extends SQLiteOpenHelper {
         /*
         *
                 CREATE TABLE "reminders" (
-                "id"	INTEGER NOT NULL,
+                "id"	INTEGER PRIMARY NOT NULL AUTOINCREMENT,,
                 "Category"	TEXT,
                 "message"	TEXT,
                 "date"	TEXT,
                 "time"	TEXT,
                 PRIMARY KEY("id" AUTOINCREMENT)
+                );
+                *
+                *
+                CREATE TABLE reminder (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                category TEXT NOT NULL,
+                plan TEXT NOT NULL,
+                date TEXT NOT NULL UNIQUE,
+                time TEXT NOT NULL UNIQUE
                 );
         *
         *
