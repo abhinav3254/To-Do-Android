@@ -16,6 +16,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.doit.database.DBHandler;
+import com.example.doit.database.DbHelperTwo;
 import com.example.doit.databinding.ActivityFillReminderBinding;
 
 import java.util.Calendar;
@@ -89,22 +90,28 @@ public class FillReminderActivity extends AppCompatActivity {
 
 //        doing backend stuff
 
-        DBHandler dbHandler = new DBHandler(FillReminderActivity.this);
+        DbHelperTwo dbHandler = new DbHelperTwo(FillReminderActivity.this);
 
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String categoryName = binding.categoryName.getText().toString();
                 String message = binding.reminderName.getText().toString();
 
-                Log.d("Abhinav", "yyyy: "+categoryName+" --> "+message+" --> "+dateSave+" --> "+timeSave);
 
-                dbHandler.addNewData(categoryName,message,dateSave,timeSave);
-                Toast.makeText(FillReminderActivity.this, "Added to the List", Toast.LENGTH_SHORT).show();
+                if(categoryName.isEmpty()||message.isEmpty()||dateSave.isEmpty()||timeSave.isEmpty()) {
+                    Toast.makeText(FillReminderActivity.this, "Fields can't be empty", Toast.LENGTH_SHORT).show();
+                    Log.d("Abhinav", "yyyy: "+categoryName+" --> "+message+" --> "+dateSave+" --> "+timeSave);
+                } else {
+                    Log.d("Abhinav", "yyyy: "+categoryName+" --> "+message+" --> "+dateSave+" --> "+timeSave);
+                    boolean ans = dbHandler.insertData(categoryName, message, dateSave, timeSave);
+                    Toast.makeText(FillReminderActivity.this, ans+"Added to the List", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(FillReminderActivity.this,HomeActivity.class);
-                startActivity(intent);
-                finish();
+                    Intent intent = new Intent(FillReminderActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 

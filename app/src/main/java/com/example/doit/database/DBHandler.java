@@ -17,25 +17,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String date = "date";
     private static final String time = "time";
 
-//    String val = "CREATE TABLE "+TABLE_NAME+"(\n" +
-//            "   "+ID_COL+" INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-//            "   "+Category+"           TEXT      NOT NULL,\n" +
-//            "   "+message+"            TEXT       NOT NULL,\n" +
-//            "   "+date+"        TEXT,\n" +
-//            "   "+time+"         TEXT\n" +
-//            ");";
 
-//    String val = "CREATE TABLE reminder (\n" +
-//            "                id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-//            "                category TEXT NOT NULL,\n" +
-//            "                message TEXT NOT NULL,\n" +
-//            "                date TEXT NOT NULL UNIQUE,\n" +
-//            "                time TEXT NOT NULL UNIQUE\n" +
-//            "                );";
-
-//    String val = "CREATE TABLE REMINDERS (ID INTEGER PRIMARY KEY AUTOINCREMENT, CATEGORY TEXT, MESSAGE TEXT,DATE TEXT,TIME TEXT);";
-
-    String val = "CREATE TABLE "+TABLE_NAME+" ("+id+" INTEGER PRIMARY KEY AUTOINCREMENT, "+category+" TEXT, "+message+" TEXT,"+date+" TEXT,"+time+" TEXT);";
 
     public DBHandler (Context context) {
         super(context,DB_NAME,null,DB_VERSION);
@@ -44,49 +26,10 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        /*
-        *
-                CREATE TABLE "reminders" (
-                "id"	INTEGER PRIMARY NOT NULL AUTOINCREMENT,,
-                "Category"	TEXT,
-                "message"	TEXT,
-                "date"	TEXT,
-                "time"	TEXT,
-                PRIMARY KEY("id" AUTOINCREMENT)
-                );
-                *
-                *
-                CREATE TABLE reminder (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                category TEXT NOT NULL,
-                plan TEXT NOT NULL,
-                date TEXT NOT NULL UNIQUE,
-                time TEXT NOT NULL UNIQUE
-                );
-        *
-        *
-        * */
-
-//        String query = "CREATE TABLE "+TABLE_NAME+"("+ID_COL+" INTEGER PRIMARY KEY AUTOINCREMENT, "+Category+" TEXT,"+message+" TEXT, "+date+" TEXT, "+time+" TEXT)";
-
-        // "CREATE TABLE "+TABLE_NAME+"("+ID_COL+" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "+Category+" TEXT,"+message+" TEXT, "+date+" TEXT, "+time+" TEXT)"
-//        CREATE TABLE one(ID_COL INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Category TEXT, message TEXT, date TEXT, time TEXT)
-
-//        String query = "CREATE TABLE "+TABLE_NAME+"("+
-//                ID_COL+ "   INTEGER NOT NULL,"+
-//                Category+ "\tTEXT,"+
-//                message+ "\tTEXT,"+
-//                date+ "\tTEXT,"+
-//                time+ "\tTEXT"+
-//                "PRIMARY KEY(\"id\" AUTOINCREMENT)"+
-//                ");";
-
-//        String query = "CREATE TABLE \"reminders\" (\n                \"id\"\tINTEGER NOT NULL,\n                \"Category\"\tTEXT,\n                \"message\"\tTEXT,\n                \"date\"\tTEXT,\n                \"time\"\tTEXT,\nPRIMARY KEY(\"id\" AUTOINCREMENT)\n);";
+        String query = "CREATE TABLE "+TABLE_NAME+" ("+id+" INTEGER PRIMARY KEY AUTOINCREMENT, "+category+" TEXT, "+message+" TEXT,"+date+" TEXT,"+time+" TEXT);";
 
 
-//        String query = new StringBuilder().append("CREATE TABLE ").append(TABLE_NAME).append("(").append(ID_COL).append(" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, ").append(Category).append(" TEXT, ").append(message).append(" TEXT, ").append(date).append(" TEXT, ").append(time).append(" TEXT)").toString();
-
-        sqLiteDatabase.execSQL(val);
+        sqLiteDatabase.execSQL(query);
 
     }
 
