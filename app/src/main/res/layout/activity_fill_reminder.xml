@@ -18,21 +18,149 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="20dp"
+                android:layout_height="wrap_content"
                 app:cardElevation="10dp"
-                app:cardCornerRadius="10dp">
-
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="20dp"
+                >
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dropdown"
-                    />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Category Name"
+                        app:hintTextColor="@color/deepPurple"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        >
+                        <!--this is the actual edit text which takes the input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Reminder"
+                        app:hintTextColor="@color/deepPurple"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        >
+                        <!--this is the actual edit text which takes the input-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/dateTV"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Date"
+                            android:gravity="center"
+                            android:fontFamily="@font/fira_code_bold"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:elevation="10dp"
+                            />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/dateBTN"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Date"
+                            android:textAllCaps="false"
+                            app:icon="@drawable/date_svgrepo_com"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/timeTV"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Time"
+                            android:gravity="center"
+                            android:fontFamily="@font/fira_code_bold"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:elevation="10dp"
+                            />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/timeBTN"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Time"
+                            app:icon="@drawable/time_left_time_and_date_svgrepo_com"
+                            app:iconGravity="start"
+                            android:textAllCaps="false"
+                            />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:text="save"
+                        android:textAllCaps="false"
+                        android:layout_margin="20dp"
+                        app:cornerRadius="10dp"
+                        app:elevation="20dp"
+                        android:elevation="20dp"
+                        android:backgroundTint="@color/purple_200"
+                        />
+
+
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
 
         </LinearLayout>
     </ScrollView>
