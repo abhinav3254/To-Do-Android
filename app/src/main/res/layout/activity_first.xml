@@ -14,17 +14,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:fontFamily="@font/fira_code_bold"
                 android:gravity="center"
-                android:text="@string/app_name"
+                android:text="To Do App"
                 android:textColor="@color/deepPurple"
                 android:layout_margin="20dp"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"
+                android:elevation="10dp"
                 />
             <ImageView
                 android:layout_width="match_parent"
@@ -34,16 +35,16 @@
                 android:layout_margin="10dp"
                 />
 
-            <ImageView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/startButton"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="40dp"
-                android:src="@drawable/right_arrow_next_svgrepo_com"
-                android:elevation="5dp"
-
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:elevation="10dp"
+                android:layout_margin="20dp"
+                android:text="Start"
+                android:textAllCaps="false"
+                app:elevation="10dp"
                 />
 
         </LinearLayout>

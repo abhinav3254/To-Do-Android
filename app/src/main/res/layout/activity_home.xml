@@ -7,14 +7,19 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/floatingButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:backgroundTint="@color/deepPurple"
-        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:text="Create a New Entry"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        app:icon="@drawable/add_symbol_svgrepo_com"
+        app:iconPadding="20dp"
         />
 
     <LinearLayout
