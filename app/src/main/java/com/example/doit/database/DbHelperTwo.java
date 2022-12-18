@@ -2,10 +2,16 @@ package com.example.doit.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.doit.recyclerview.ModelClass;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbHelperTwo extends SQLiteOpenHelper {
 
@@ -37,6 +43,23 @@ public class DbHelperTwo extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+//    reading all the values from the database
+
+    public List<ModelClass> readData () {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM reminders",null);
+
+        List<ModelClass> list = new ArrayList<>();
+         if(cursor.moveToFirst()) {
+             do {
+                 list.add(new ModelClass(cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4) ));
+             } while (cursor.moveToNext());
+         }
+         cursor.close();
+         return list;
     }
 
     @Override
