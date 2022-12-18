@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/white"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category Name"
+                android:textColor="@color/deepPurple"
+                android:fontFamily="@font/fira_code"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I have to make this application at any cost and try to make this application complete any how"
+                android:maxLines="2"
+                android:textSize="20sp"
+                android:textColor="@color/ultraMarine"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/fira_code"
+                />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="19:00"
+                android:textColor="@color/indigo"
+                android:fontFamily="@font/fira_code_bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:elevation="5dp"
+                    app:elevation="5dp"
+                    android:text="Edit"
+                    android:textAllCaps="false"
+                    android:layout_marginLeft="10dp"
+                    app:cornerRadius="15dp"
+                    android:backgroundTint="#F07DEA"
+                    />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:elevation="5dp"
+                    app:elevation="5dp"
+                    android:text="Done"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="10dp"
+                    app:cornerRadius="15dp"
+                    android:backgroundTint="#F07DEA"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
