@@ -4,14 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.example.doit.database.DBHandler;
 import com.example.doit.databinding.ActivityFillReminderBinding;
 
 import java.util.Calendar;
@@ -19,6 +23,9 @@ import java.util.Calendar;
 public class FillReminderActivity extends AppCompatActivity {
 
     ActivityFillReminderBinding binding;
+
+    String dateSave;
+    String timeSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,8 @@ public class FillReminderActivity extends AppCompatActivity {
 
 
 //        setting up date and time
+
+
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
@@ -49,6 +58,7 @@ public class FillReminderActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
                         binding.dateTV.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                        dateSave = dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
                     }
                 },year,month,dayOfMonth);
                 datePickerDialog.show();
@@ -67,6 +77,7 @@ public class FillReminderActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int min) {
                         binding.timeTV.setText(hour+":"+min);
+                        timeSave = hour+":"+min;
                     }
                 },hour,min,true);
 
@@ -74,6 +85,28 @@ public class FillReminderActivity extends AppCompatActivity {
             }
         });
 
+
+
+//        doing backend stuff
+
+        DBHandler dbHandler = new DBHandler(FillReminderActivity.this);
+
+        binding.saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String categoryName = binding.categoryName.getText().toString();
+                String message = binding.reminderName.getText().toString();
+
+                Log.d("Abhinav", "yyyy: "+categoryName+" --> "+message+" --> "+dateSave+" --> "+timeSave);
+
+                dbHandler.addNewData(categoryName,message,dateSave,timeSave);
+                Toast.makeText(FillReminderActivity.this, "Added to the List", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(FillReminderActivity.this,HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 
